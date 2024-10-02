@@ -207,6 +207,10 @@ puts '                                  Скрипты Windows PowerShell'
 
 
 
+puts '                                          Разное. Проги'
+
+# Gow - набор юникс команд(например grep) и программ для виндоус(есть на гитхаб) - можно установить.
+# https://github.com/bmatzelle/gow
 
 
 
