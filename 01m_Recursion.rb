@@ -30,38 +30,24 @@ puts '                                          Примеры и решения
 
 # 4 kyu Hash.flattened_keys
 # https://www.codewars.com/kata/521a849a05dd182a09000043
-class Hash
-
-  def flattened_keys(obj = nil)
-    obj = self.clone if !obj
-
-    res = obj.map {|k, v|
-      if v.class == Hash or v.class == Array
-        v.map {|key, val|
-          newk = k.to_s + '_' + key.to_s
-          newk = newk.to_sym if k.class == Symbol && key.class == Symbol
-          [newk, val]
-        }
-      else
-        [k, v]
-      end
-    }.flatten
-
-    if res.any?{|e| e.class == Hash or e.class == Array}
-      flattened_keys(res.each_slice(2).to_a)
+def flattened_keys(obj)
+  obj = obj.map do |k, v|
+    if v.class == Hash || v.class == Array
+      v.map { |key, val| [k.class == Symbol && key.class == Symbol ? "#{k}_#{key}".to_sym : "#{k}_#{key}", val] }
     else
-      res.each_slice(2).to_a.to_h
+      [k, v]
     end
-  end
+  end.flatten
 
+  if obj.any?{|e| e.class == Hash || e.class == Array}
+    flattened_keys(obj.each_slice(2).to_a)
+  else
+    obj.each_slice(2).to_h
+  end
 end
 
-unflat = {id: 1, info: {name: 'example'}}
-p unflat.flattened_keys # {id: 1, info_name: 'example'}
-unflat = {id: 1, info: {name: 'example', more_info: {count: 1}}}
-p unflat.flattened_keys # {id: 1, info_name: 'example', info_more_info_count: 1}
-unflat = {a: 1, 'b' => 2, info: {id: 1, 'name' => 'example'}}
-p unflat.flattened_keys # {a: 1, 'b' => 2, info_id: 1, 'info_name' => 'example'}
+obj = {a: 1, 'b' => 2, info: {id: 1, 'name' => 'example', more_info: {count: 1}}}
+p flattened_keys(obj) #=> {:a=>1, "b"=>2, :info_id=>1, "info_name"=>"example", :info_more_info_count=>1}
 
 
 
