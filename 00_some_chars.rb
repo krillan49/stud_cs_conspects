@@ -10,6 +10,8 @@ p '▓'.ord #=> 9619
 p '▒'.ord #=> 9618
 p '░'.ord #=> 9617
 
+puts %w[━ ┃ ┏ ┓ ┗ ┛ ┣ ┫ ┳ ┻ ╋]
+
 
 # Проверить разные символы chr(Encoding::UTF_8)
 (0..0x10FFFF).each.with_index do |codepoint, i|
