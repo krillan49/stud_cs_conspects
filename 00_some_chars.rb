@@ -1,22 +1,20 @@
 # https://symbl.cc/en/unicode-table/#box-drawing
 
-p '█'.ord #=> 9608
+p '─'.ord #=> 9472
 p '▀'.ord #=> 9600
 p '▄'.ord #=> 9604
-p '▐'.ord #=> 9616
+p '█'.ord #=> 9608
 p '▌'.ord #=> 9612
-p '─'.ord #=> 9472
-p '▓'.ord #=> 9619
-p '▒'.ord #=> 9618
-p '░'.ord #=> 9617
+p '▐'.ord #=> 9616
+
+puts %w[░ ▒ ▓] # 9617 +
 
 puts %w[━ ┃ ┏ ┓ ┗ ┛ ┣ ┫ ┳ ┻ ╋]
 
 
 # Проверить разные символы chr(Encoding::UTF_8)
 (0..0x10FFFF).each.with_index do |codepoint, i|
-  puts codepoint.chr(Encoding::UTF_8)
-  break if i == 500
+  puts codepoint.chr(Encoding::UTF_8) if i > 9590 && i < 9610
 end
 
 
