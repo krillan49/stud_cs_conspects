@@ -1,13 +1,6 @@
 # https://symbl.cc/en/unicode-table/#box-drawing
 
-p '─'.ord #=> 9472
-p '▀'.ord #=> 9600
-p '▄'.ord #=> 9604
-p '█'.ord #=> 9608
-p '▌'.ord #=> 9612
-p '▐'.ord #=> 9616
-
-puts %w[░ ▒ ▓] # 9617 +
+puts %w[░ ▒ ▓ █ ▀ ▄ ▌ ▐ ─]
 
 puts %w[━ ┃ ┏ ┓ ┗ ┛ ┣ ┫ ┳ ┻ ╋]
 
