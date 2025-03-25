@@ -9,3 +9,11 @@ puts %w[━ ┃ ┏ ┓ ┗ ┛ ┣ ┫ ┳ ┻ ╋]
 (0..0x10FFFF).each.with_index do |codepoint, i|
   puts codepoint.chr(Encoding::UTF_8) if i > 9590 && i < 9610
 end
+
+# Название символов:
+# ~ - тильда
+# ^ - карет
+# & - и
+# | - или
+# \ - бэкслэш
+# / - слэш
